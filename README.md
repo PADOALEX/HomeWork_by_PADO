@@ -1,15 +1,27 @@
-This C++ project simulates an electronic queue system, inspired by Cinevo, the leading laboratory network in Ukraine (part of the Swedish Medicover group). The system manages client registration using a ticket-based queue with priority handling — similar to real-world medical and diagnostic centers.
+#  Cinevo-Style Electronic Queue System (C++)
 
-Key features:
+This is a C++ console application that simulates an **electronic queue system** used in laboratory networks like **Cinevo** (Ukraine), part of the Medicover Group. It allows users to manage client queues based on priority and ticket order.
 
-Clients receive a unique ticket number.
+---
 
-Each client has a priority level (Normal, Urgent, Emergency).
+##  Features
 
-Clients with higher priority are served before others.
+-  Add one or more clients to the queue
+-  Automatically assigns each client a **ticket number**
+-  Priority levels:
+  - `0` - Normal
+  - `1` - Urgent
+  - `2` - Emergency (served first)
+-  Serve the next client (based on priority & ticket number)
+-  Display the current queue in a formatted table
+-  Input validation and user-friendly interface
 
-A full list of waiting clients is displayed in a user-friendly table.
+---
 
-Supports adding multiple clients, calling next client, and real-time queue display.
+##  Technologies Used
 
-This system helps demonstrate concepts like structs, vectors, sorting, formatted output, and priority-based logic in C++.
+- C++ (Standard)
+- STL Libraries: `<iostream>`, `<string>`, `<vector>`, `<algorithm>`
+- Console I/O and formatted output
+
+---
