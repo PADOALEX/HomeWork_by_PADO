@@ -21,6 +21,7 @@ void addClient(vector<Client>& queue, int& lastTicketNumber)
     cin >> count;
 	while (!cin || count <= 0)
     {
+        if (cin.eof()) return;
 		cout << "Invalid input. Please enter a positive number: ";
 		cin.clear();
 		cin.ignore(1000, '\n');
@@ -32,11 +33,12 @@ void addClient(vector<Client>& queue, int& lastTicketNumber)
         Client c;
         cout << "\n--- Adding client #" << (i + 1) << " ---" << endl;
         cout << "Enter client name: ";
-        getline(cin, c.name);
+        if (!getline(cin, c.name)) return;
         explainPriority();
         cout << "Enter priority (0, 1, or 2): ";
         while (!(cin >> c.priority) || c.priority < 0 || c.priority > 2)
         {
+            if (cin.eof()) return;
             cout << "Invalid input. Please enter 0, 1, or 2: ";
             cin.clear();
             cin.ignore(1000, '\n');

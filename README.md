@@ -1,27 +1,22 @@
-#  Cinevo-Style Electronic Queue System (C++)
+# Priority service queue
 
-This is a C++ console application that simulates an **electronic queue system** used in laboratory networks like **Cinevo** (Ukraine), part of the Medicover Group. It allows users to manage client queues based on priority and ticket order.
+[![C++ CI](https://github.com/PADOALEX/HomeWork_by_PADO/actions/workflows/ci.yml/badge.svg)](https://github.com/PADOALEX/HomeWork_by_PADO/actions/workflows/ci.yml)
 
----
+An educational service queue: higher urgency first, then ascending ticket number for FIFO ordering within a priority. Console input recovers from invalid choices and exits at EOF.
 
-##  Features
+## Build and run
 
--  Add one or more clients to the queue
--  Automatically assigns each client a **ticket number**
--  Priority levels:
-  - `0` - Normal
-  - `1` - Urgent
-  - `2` - Emergency (served first)
--  Serve the next client (based on priority & ticket number)
--  Display the current queue in a formatted table
--  Input validation and user-friendly interface
+Install Visual Studio 2022 or later with the Desktop development with C++ workload, CMake 3.20+ and Python 3.12+ for regression tests. Run from the repository root on Windows:
 
----
+```powershell
+cmake -S . -B build
+cmake --build build --config Release
+ctest --test-dir build -C Release --output-on-failure
+.\build\Release\app.exe
+```
 
-##  Technologies Used
+The original Visual Studio solution remains available. The CMake executable is named `app`; executable location depends on the selected generator. Automated tests use temporary directories for file-based scenarios and verify behavior with bounded subprocess timeouts.
 
-- C++ (Standard)
-- STL Libraries: `<iostream>`, `<string>`, `<vector>`, `<algorithm>`
-- Console I/O and formatted output
+## Scope
 
----
+This is a single-user academic program, without a database, authentication or deployment. The original Windows console interface is preserved. Source text and console output now use UTF-8; CMake sets the MSVC source encoding explicitly.
