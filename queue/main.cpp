@@ -1,5 +1,6 @@
 #include "function.h"
 #include <iostream>
+#include <limits>
 using namespace std;
 int main()
 {
@@ -17,7 +18,12 @@ int main()
         cout << "4 - Exit system\n";
         cout << "---------------------------------------------\n";
         cout << "Enter your choice: ";
-        cin >> choice;
+        if (!(cin >> choice)) {
+            if (cin.eof()) break;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
         switch (choice)
         {
         case 1:
